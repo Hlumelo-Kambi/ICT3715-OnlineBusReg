@@ -1,0 +1,84 @@
+CREATE TABLE Parent (
+    Parent_ID INT PRIMARY KEY,
+    Parent_Name VARCHAR(50),
+    Parent_Surname VARCHAR(50),
+    Parent_CellNo VARCHAR(15),
+    Parent_Email VARCHAR(100),
+    Parent_Passcode VARCHAR(50)
+);
+
+CREATE TABLE Learner (
+    Learner_ID INT PRIMARY KEY,
+    Bus_ID INT,
+    Admin_ID INT,
+    Learner_Name VARCHAR(50),
+    Learner_Surname VARCHAR(50),
+    Learner_Grade VARCHAR(10),
+    Learner_CellNo VARCHAR(15),
+    FOREIGN KEY (Bus_ID) REFERENCES Bus(Bus_ID),
+    FOREIGN KEY (Admin_ID) REFERENCES Administrator(Admin_ID)
+);
+
+CREATE TABLE Administrator (
+    Admin_ID INT PRIMARY KEY,
+    Parent_ID INT,
+    Learner_ID INT,
+    Admin_Initials VARCHAR(10),
+    Admin_Surname VARCHAR(50),
+    Admin_Email VARCHAR(100),
+    Admin_Passcode VARCHAR(50),
+    FOREIGN KEY (Parent_ID) REFERENCES Parent(Parent_ID),
+    FOREIGN KEY (Learner_ID) REFERENCES Learner(Learner_ID)
+);
+
+CREATE TABLE Bus (
+    Bus_ID INT PRIMARY KEY,
+    Admin_ID INT,
+    Route_ID INT,
+    Bus_SpaceStatus VARCHAR(20),
+    Bus_Time TIME,
+    FOREIGN KEY (Admin_ID) REFERENCES Administrator(Admin_ID),
+    FOREIGN KEY (Route_ID) REFERENCES Routes(Route_ID)
+);
+
+CREATE TABLE Routes (
+    Route_ID INT PRIMARY KEY,
+    PickUp_No INT,
+    DropOff_No INT,
+    Route_Times TIME,
+    Route_Destination VARCHAR(100),
+    FOREIGN KEY (PickUp_No) REFERENCES Pick_Up(PickUp_No),
+    FOREIGN KEY (DropOff_No) REFERENCES Drop_Off(DropOff_No)
+);
+
+CREATE TABLE Pick_Up (
+    PickUp_No INT PRIMARY KEY,
+    PickUp_Name VARCHAR(50),
+    PickUp_Point VARCHAR(100)
+);
+
+CREATE TABLE Drop_Off (
+    DropOff_No INT PRIMARY KEY,
+    DropOff_Name VARCHAR(50),
+    DropOff_Point VARCHAR(100)
+);
+
+CREATE TABLE Waiting_List (
+    WaitingList_No INT PRIMARY KEY,
+    Learner_ID INT,
+    Admin_ID INT,
+    Learner_Names VARCHAR(100),
+    Learner_Contacts VARCHAR(100),
+    WaitingList_Group VARCHAR(50),
+    FOREIGN KEY (Learner_ID) REFERENCES Learner(Learner_ID),
+    FOREIGN KEY (Admin_ID) REFERENCES Administrator(Admin_ID)
+);
+
+CREATE TABLE Parent_Student_AppReg (
+    Application_No INT PRIMARY KEY,
+    Learner_ID INT,
+    Parent_ID INT,
+    Application_Status VARCHAR(50),
+    FOREIGN KEY (Learner_ID) REFERENCES Learner(Learner_ID),
+    FOREIGN KEY (Parent_ID) REFERENCES Parent(Parent_ID)
+);

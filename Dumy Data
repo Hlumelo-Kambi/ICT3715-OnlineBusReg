@@ -1,0 +1,49 @@
+-- Insert data into the Bus table
+INSERT INTO Bus (Bus_ID, Admin_ID, Route_ID, Bus_SpaceStatus, Bus_Time)
+VALUES 
+(1, 1, 1, 'Full', '08:00:00'),
+(2, 2, 2, 'Full', '08:15:00'),
+(3, 3, 3, 'Full', '08:30:00');
+
+-- Insert data into the Learner table for Bus 1 (3 learners)
+INSERT INTO Learner (Learner_ID, Bus_ID, Admin_ID, Learner_Name, Learner_Surname, Learner_Grade, Learner_CellNo)
+VALUES
+(1, 1, 1, 'Learner1', 'Surname1', 'Grade1', '1234567890'),
+(2, 1, 1, 'Learner2', 'Surname2', 'Grade2', '1234567891'),
+(3, 1, 1, 'Learner3', 'Surname3', 'Grade3', '1234567892'),
+-- ... (Continue for the remaining 32 learners)
+--(34, 1, 1, 'Learner34', 'Surname34', 'Grade34', '1234567922'),
+--(35, 1, 1, 'Learner35', 'Surname35', 'Grade35', '1234567923');
+
+-- Insert data into the Learner table for Bus 2 (6 learners)
+INSERT INTO Learner (Learner_ID, Bus_ID, Admin_ID, Learner_Name, Learner_Surname, Learner_Grade, Learner_CellNo)
+VALUES
+(36, 2, 2, 'Learner36', 'Surname36', 'Grade36', '1234567924'),
+(37, 2, 2, 'Learner37', 'Surname37', 'Grade37', '1234567925'),
+(38, 2, 2, 'Learner38', 'Surname38', 'Grade38', '1234567926'),
+(39, 2, 2, 'Learner39', 'Surname39', 'Grade39', '1234567927'),
+(40, 2, 2, 'Learner40', 'Surname40', 'Grade40', '1234567928'),
+(41, 2, 2, 'Learner41', 'Surname41', 'Grade41', '1234567929'),
+
+
+
+-- Insert data into the Learner table for Bus 3 (3 learners)
+INSERT INTO Learner (Learner_ID, Bus_ID, Admin_ID, Learner_Name, Learner_Surname, Learner_Grade, Learner_CellNo)
+VALUES
+(44, 3, 3, 'Learner44', 'Surname44', 'Grade44', '1234567932'),
+(45, 3, 3, 'Learner45', 'Surname45', 'Grade45', '1234567933'),
+(46, 3, 3, 'Learner46', 'Surname46', 'Grade46', '1234567934'),
+(47, 3, 3, 'Learner47', 'Surname47', 'Grade47', '1234567935'),
+(48, 3, 3, 'Learner48', 'Surname48', 'Grade48', '1234567936'),
+(49, 3, 3, 'Learner49', 'Surname49', 'Grade49', '1234567937'),
+(50, 3, 3, 'Learner50', 'Surname50', 'Grade50', '1234567938'),
+(51, 3, 3, 'Learner51', 'Surname51', 'Grade51', '1234567939'),
+(52, 3, 3, 'Learner52', 'Surname52', 'Grade52', '1234567940'),
+(53, 3, 3, 'Learner53', 'Surname53', 'Grade53', '1234567941'),
+(54, 3, 3, 'Learner54', 'Surname54', 'Grade54', '1234567942'),
+(55, 3, 3, 'Learner55', 'Surname55', 'Grade55', '1234567943'),
+(56, 3, 3, 'Learner56', 'Surname56', 'Grade56', '1234567944'),
+
+
+INSERT INTO parent (Parent_ID, Parent_Name, Parent_Surname, Parent_CellNo, Parent_Email, Parent_Passcode) VALUES
+(10, 'Matu', 'Kambi', '0635136639', 'hlumelokambi@gmail.com', 'parent');

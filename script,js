@@ -1,0 +1,16 @@
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var role = document.getElementById('role').value;
+
+    // Placeholder for authentication (to be replaced with actual authentication logic)
+    if (username === "parent" && password === "password" && role === "parent") {
+        document.getElementById('message').innerText = "Parent login successful!";
+    } else if (username === "admin" && password === "password" && role === "admin") {
+        document.getElementById('message').innerText = "Administrator login successful!";
+    } else {
+        document.getElementById('message').innerText = "Invalid login credentials!";
+    }
+});
